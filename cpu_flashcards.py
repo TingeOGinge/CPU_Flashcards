@@ -32,7 +32,7 @@ def createCPURegisters():
         Register("MBR", "Memory Buffer Register", "Holds the contents of the memory which are to be transferred from memory to other components, or vice versa"),
         Register("IBR", "Instruction Buffer Register", "Holds the opcode of the current fetched instruction"),
         Register("IR", "Instruction Register", "Holds the instruction currently being executed"),
-        Register("AC", "Accumulator", "Temporarily stores data whilst calculations ware being performed within the ALU")
+        Register("AC", "Accumulator", "Temporarily stores data whilst calculations are being performed within the ALU")
     ]
 
 def main():
