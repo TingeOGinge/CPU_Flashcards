@@ -39,13 +39,14 @@ def createComputerFunctions():
     return [
         Register("DP Function", "Data Processing", "Completes the instructions given from the 'control'"),
         Register("DS Function", "Data Storage", "Retains information for either short or long term periods for future use"),
-        Register("DM Function", "Data Movement", "Loads and stores data from on place to another"),
+        Register("DM Function", "Data Movement", "Loads and stores data from one place to another"),
         Register("C Function", "Control", "Runs the overall process of computer functions")
     ]
 
-def playFlashcards(rounds, chosenFlashcard):
+def playFlashcards(rounds, chosenFlashcardSet):
     score = 0
     for i in range(rounds):
+        chosenFlashcard = choice(chosenFlashcardSet)
         userAnswer = askQuestion(chosenFlashcard)
         if (userAnswer == "EXIT"): 
             break
@@ -59,15 +60,16 @@ def playFlashcards(rounds, chosenFlashcard):
 def memoryRegisters():
     cpuRegisters = createCPURegisters()
     rounds = getNumberOfRounds()
-    playFlashcards(rounds, choice(cpuRegisters))
+    playFlashcards(rounds, cpuRegisters)
 
 def computerFunctions():
     computerFunctions = createComputerFunctions()
     rounds = getNumberOfRounds()
-    playFlashcards(rounds, choice(computerFunctions))
+    playFlashcards(rounds, computerFunctions)
 
 def combinedQuestions():
-    computerFunctions = createComputerFunctions()
-    cpuRegisters = createCPURegisters()
+    flashcardSet = createComputerFunctions() + createCPURegisters()
     rounds = getNumberOfRounds()
-    playFlashcards(rounds, choice([choice(computerFunctions), choice(cpuRegisters)]))
+    playFlashcards(rounds, flashcardSet)
+
+combinedQuestions()
